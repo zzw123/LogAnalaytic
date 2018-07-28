@@ -102,7 +102,7 @@ public class IpParserUtil extends IPSeeker{
             logger.warn("解析ip工具方法异常",e);
         }
 
-        return null;
+        return info;
     }
 
     /**
@@ -110,18 +110,19 @@ public class IpParserUtil extends IPSeeker{
      */
     public RegionInfo parserIp1(String url,String charset) throws Exception{
         HttpClient client = new HttpClient();
-        GetMethod method = new GetMethod();
+        GetMethod method = new GetMethod(url);
 
         if (url == null || !url.startsWith("http")){
             throw new Exception("请求地址格式不对");
         }
         //设置请求的编码方式
         if (charset != null){
-            method.addRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=\" + charset");
+            method.addRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=" + charset);
         }else {
             method.addRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=" + "utf-8");
         }
         int statusCode = client.executeMethod(method);
+
 
         if (statusCode != HttpStatus.SC_OK){
             System.out.println("Method failed: " + method.getStatusLine());
