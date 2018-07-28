@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+<property>
+  <name>hbase.rootdir</name>
+  <value>hdfs://min1:9000/hbase</value>
+</property>
+
+<property>
+  <name>hbase.cluster.distributed</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hbase.zookeeper.quorum</name>
+  <value>192.168.18.64:2181,192.168.18.65:2181,192.168.18.66:2181</value>
+</property>
+
+</configuration>

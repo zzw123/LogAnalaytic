@@ -51,7 +51,7 @@ public class UserAgentUtil {
     }
 
     /**
-     * 封装浏览器相关熟悉
+     * 封装浏览器相关信息
      */
     public static class UserAgentInfo{
         private String browserName;
